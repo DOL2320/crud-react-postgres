@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
 const sequelize = new Sequelize('mydb', process.env.PG_USER, process.env.PG_Password, {
   host: 'localhost',
@@ -11,3 +12,5 @@ try {
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }
+
+module.exports = sequelize;
